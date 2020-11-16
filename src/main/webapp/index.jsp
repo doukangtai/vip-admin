@@ -11,13 +11,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>登录页面 - 光年(Light Year Admin)后台管理系统模板</title>
-    <link rel="icon" href="favicon.ico" type="image/ico">
+    <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico" type="image/ico">
     <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
     <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
     <meta name="author" content="yinqi">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/materialdesignicons.min.css" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/style.min.css" rel="stylesheet">
     <style>
         .lyear-wrapper {
             position: relative;
@@ -84,11 +84,11 @@
 </head>
 
 <body>
-<div class="row lyear-wrapper" style="background-image: url(images/login-bg-3.jpg); background-size: cover;">
+<div class="row lyear-wrapper" style="background-image: url(${pageContext.request.contextPath}/images/login-bg-3.jpg); background-size: cover;">
     <div class="lyear-login">
         <div class="login-center">
             <div class="login-header text-center">
-                <a href="index.html"> <img alt="light year admin" src="images/logo-sidebar.png"> </a>
+                <a href="${pageContext.request.contextPath}/index.html"> <img alt="light year admin" src="images/logo-sidebar.png"> </a>
             </div>
             <form action="#!" method="post">
                 <div class="form-group has-feedback feedback-left">
@@ -114,11 +114,11 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-block btn-primary" type="button" onclick="location.href='test2'">立即登录</button>
+                    <button class="btn btn-block btn-primary" type="button" onclick="location.href='admin/index'">立即登录</button>
                 </div>
             </form>
             <footer class="col-sm-12 text-center text-white">
-                <p class="m-b-0">Copyright © 2020 <a href="http://lyear.itshubao.com">IT书包</a>. All right reserved</p>
+                <p class="m-b-0">Copyright © 2020 <a href="${pageContext.request.contextPath}/http://lyear.itshubao.com">IT书包</a>. All right reserved</p>
             </footer>
         </div>
     </div>
