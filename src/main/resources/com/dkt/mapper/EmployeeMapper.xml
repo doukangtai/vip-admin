@@ -9,7 +9,7 @@
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="is_fire" jdbcType="INTEGER" property="isFire" />
+    <result column="is_fire" jdbcType="VARCHAR" property="isFire" />
   </resultMap>
   <sql id="Base_Column_List">
     eid, `name`, phone, `password`, address, `type`, is_fire
@@ -29,7 +29,7 @@
       address, `type`, is_fire
       )
     values (#{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{isFire,jdbcType=INTEGER}
+      #{address,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{isFire,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" keyColumn="eid" keyProperty="eid" parameterType="com.dkt.entity.Employee" useGeneratedKeys="true">
@@ -71,7 +71,7 @@
         #{type,jdbcType=VARCHAR},
       </if>
       <if test="isFire != null">
-        #{isFire,jdbcType=INTEGER},
+        #{isFire,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -94,7 +94,7 @@
         `type` = #{type,jdbcType=VARCHAR},
       </if>
       <if test="isFire != null">
-        is_fire = #{isFire,jdbcType=INTEGER},
+        is_fire = #{isFire,jdbcType=VARCHAR},
       </if>
     </set>
     where eid = #{eid,jdbcType=INTEGER}
@@ -106,11 +106,15 @@
       `password` = #{password,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=VARCHAR},
-      is_fire = #{isFire,jdbcType=INTEGER}
+      is_fire = #{isFire,jdbcType=VARCHAR}
     where eid = #{eid,jdbcType=INTEGER}
   </update>
 
   <select id="selectAll" resultMap="BaseResultMap">
-    select * from employee
+    SELECT * FROM employee
+    </select>
+
+  <select id="selectByPhonePasswordType" resultMap="BaseResultMap">
+    SELECT * FROM employee WHERE phone=#{phone,jdbcType=VARCHAR} AND `password`=#{password,jdbcType=VARCHAR} AND type=#{type,jdbcType=VARCHAR}
   </select>
 </mapper>

@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
 *@author 窦康泰
-*@date 2020/11/16
+*@date 2020/11/17
 */
 public interface EmployeeMapper {
     int deleteByPrimaryKey(Integer eid);
@@ -22,4 +22,6 @@ public interface EmployeeMapper {
     int updateByPrimaryKey(Employee record);
 
     List<Employee> selectAll();
+
+    Employee selectByPhonePasswordType(Employee employee);
 }

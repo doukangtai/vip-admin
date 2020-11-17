@@ -2,7 +2,7 @@ package com.dkt.entity;
 
 /**
 *@author 窦康泰
-*@date 2020/11/16
+*@date 2020/11/17
 */
 public class Employee {
     private Integer eid;
@@ -17,7 +17,7 @@ public class Employee {
 
     private String type;
 
-    private Integer isFire;
+    private String isFire;
 
     @Override
     public String toString() {
@@ -28,7 +28,7 @@ public class Employee {
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", type='" + type + '\'' +
-                ", isFire=" + isFire +
+                ", isFire='" + isFire + '\'' +
                 '}';
     }
 
@@ -80,11 +80,11 @@ public class Employee {
         this.type = type;
     }
 
-    public Integer getIsFire() {
+    public String getIsFire() {
         return isFire;
     }
 
-    public void setIsFire(Integer isFire) {
+    public void setIsFire(String isFire) {
         this.isFire = isFire;
     }
 }

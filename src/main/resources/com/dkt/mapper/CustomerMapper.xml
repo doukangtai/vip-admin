@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dkt.mapper.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.dkt.entity.Customer">
+    <!--@Table customer-->
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="vid" jdbcType="INTEGER" property="vid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="money" jdbcType="DOUBLE" property="money" />
+    <result column="is_logout_vip" jdbcType="VARCHAR" property="isLogoutVip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cid, vid, `name`, phone, `password`, money, is_logout_vip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from customer
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from customer
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="cid" keyProperty="cid" parameterType="com.dkt.entity.Customer" useGeneratedKeys="true">
+    insert into customer (vid, `name`, phone, 
+      `password`, money, is_logout_vip
+      )
+    values (#{vid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{money,jdbcType=DOUBLE}, #{isLogoutVip,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="cid" keyProperty="cid" parameterType="com.dkt.entity.Customer" useGeneratedKeys="true">
+    insert into customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        vid,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="isLogoutVip != null">
+        is_logout_vip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="vid != null">
+        #{vid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="isLogoutVip != null">
+        #{isLogoutVip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dkt.entity.Customer">
+    update customer
+    <set>
+      <if test="vid != null">
+        vid = #{vid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="isLogoutVip != null">
+        is_logout_vip = #{isLogoutVip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dkt.entity.Customer">
+    update customer
+    set vid = #{vid,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DOUBLE},
+      is_logout_vip = #{isLogoutVip,jdbcType=VARCHAR}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPhonePassword" resultMap="BaseResultMap">
+    SELECT * FROM customer WHERE phone=#{phone,jdbcType=VARCHAR} AND `password`=#{password,jdbcType=VARCHAR}
+    </select>
+</mapper>

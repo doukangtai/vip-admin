@@ -27,6 +27,18 @@
         </option>
         <option name="tableGenerateConfigs">
           <map>
+            <entry key="vip:customer">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="cid" />
+                  <option name="javaModelName" value="Customer" />
+                  <option name="moduleName" value="vip" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="vip:employee">
               <value>
                 <TableGenerateConfig>

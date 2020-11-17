@@ -114,7 +114,7 @@
         <!--End 左侧导航-->
 
         <!--头部信息-->
-        <%@ include file="../common/top.jsp" %>
+        <%@ include file="../common/admin/top.jsp" %>
         <!--End 头部信息-->
 
         <!--页面主要内容-->
