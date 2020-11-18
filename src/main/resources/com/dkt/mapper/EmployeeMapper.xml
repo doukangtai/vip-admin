@@ -110,8 +110,8 @@
     where eid = #{eid,jdbcType=INTEGER}
   </update>
 
-  <select id="selectAll" resultMap="BaseResultMap">
-    SELECT * FROM employee
+  <select id="selectAllEmployee" resultMap="BaseResultMap">
+    SELECT * FROM employee WHERE type=0
     </select>
 
   <select id="selectByPhonePasswordType" resultMap="BaseResultMap">

@@ -26,61 +26,30 @@
 
                 <nav class="sidebar-main">
                     <ul class="nav nav-drawer">
-                        <li class="nav-item"> <a href="${pageContext.request.contextPath}/index.html"><i class="mdi mdi-home"></i> 后台首页</a> </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="${pageContext.request.contextPath}/javascript:void(0)"><i class="mdi mdi-palette"></i> UI 元素</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_buttons.html">按钮</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_cards.html">卡片</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_grid.html">格栅</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_icons.html">图标</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_tables.html">表格</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_modals.html">模态框</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_tooltips_popover.html">提示 / 弹出框</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_alerts.html">警告框</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_pagination.html">分页</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_progress.html">进度条</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_tabs.html">标签页</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_typography.html">排版</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_step.html">步骤</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_ui_other.html">其他</a> </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="${pageContext.request.contextPath}/javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 表单</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/lyear_forms_elements.html">基本元素</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_forms_radio.html">单选框</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_forms_checkbox.html">复选框</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_forms_switch.html">开关</a> </li>
-                            </ul>
-                        </li>
+                        <li class="nav-item active"> <a class="home" href="${pageContext.request.contextPath}/admin/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
                         <li class="nav-item nav-item-has-subnav active open">
-                            <a href="${pageContext.request.contextPath}/javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
+                            <a href="javascript:void(0)"><i class="mdi mdi-home"></i> 员工管理</a>
                             <ul class="nav nav-subnav">
-                                <li class="active"> <a href="${pageContext.request.contextPath}/admin/employee">文档列表</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_gallery.html">图库列表</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_config.html">网站配置</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_rabc.html">设置权限</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_add_doc.html">新增文档</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_guide.html">表单向导</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_login.html">登录页面</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_login_2.html">登录页面2</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_login_3.html">登录页面3</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_login_4.html">登录页面4</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_pages_error.html">错误页面</a> </li>
+                                <li class="active"> <a href="${pageContext.request.contextPath}/admin/employee">员工列表</a> </li>
+                                <li> <a href="javascript:void(0)">卡片</a> </li>
+                                <li> <a href="javascript:void(0)">格栅</a> </li>
+                                <li> <a href="javascript:void(0)">图标</a> </li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-has-subnav">
-                            <a href="${pageContext.request.contextPath}/javascript:void(0)"><i class="mdi mdi-language-javascript"></i> JS 插件</a>
+                            <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
                             <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/lyear_js_datepicker.html">日期选取器</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_js_sliders.html">滑块</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_js_colorpicker.html">选色器</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_js_chartjs.html">Chart.js</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_js_jconfirm.html">对话框</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_js_tags_input.html">标签插件</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/lyear_js_notify.html">通知消息</a> </li>
+                                <li> <a href="javascript:void(0)">分页</a> </li>
+                                <li class="active"> <a href="javascript:void(0)">进度条</a> </li>
+                                <li> <a href="javascript:void(0)">标签页</a> </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i> JS 插件</a>
+                            <ul class="nav nav-subnav">
+                                <li> <a href="javascript:void(0)">表格</a> </li>
+                                <li> <a href="javascript:void(0)">模态框</a> </li>
+                                <li> <a href="javascript:void(0)">警告框</a> </li>
                             </ul>
                         </li>
                     </ul>
@@ -123,6 +92,50 @@
                                     </div>
                                 </form>
                                 <div class="toolbar-btn-action">
+                                    <div class="modal fade" id="updateEmployee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="exampleModalLabel">修改员工信息</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="eid" class="control-label">编号：</label>
+                                                            <input type="text" class="form-control" id="eid" disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="name" class="control-label">姓名：</label>
+                                                            <input type="text" class="form-control" id="name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="phone" class="control-label">手机号：</label>
+                                                            <input type="text" class="form-control" id="phone">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="password" class="control-label">密码：</label>
+                                                            <input type="text" class="form-control" id="password">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="address" class="control-label">住址：</label>
+                                                            <input type="text" class="form-control" id="address">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="lyear-switch switch-success">是否任职：
+                                                                <input id="isFire" type="checkbox" checked="">
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                    <button type="button" class="btn btn-primary" id="save-employee">保存修改</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <a class="btn btn-primary m-r-5" href="${pageContext.request.contextPath}/#!"><i class="mdi mdi-plus"></i> 新增</a>
                                     <a class="btn btn-success m-r-5" href="${pageContext.request.contextPath}/#!"><i class="mdi mdi-check"></i> 启用</a>
                                     <a class="btn btn-warning m-r-5" href="${pageContext.request.contextPath}/#!"><i class="mdi mdi-block-helper"></i> 禁用</a>
@@ -135,11 +148,6 @@
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>
-                                                <label class="lyear-checkbox checkbox-primary">
-                                                    <input type="checkbox" id="check-all"><span></span>
-                                                </label>
-                                            </th>
                                             <th>编号</th>
                                             <th>姓名</th>
                                             <th>手机号</th>
@@ -152,11 +160,6 @@
                                         <tbody>
                                         <c:forEach items="${employees}" var="employee">
                                             <tr>
-                                                <td>
-                                                    <label class="lyear-checkbox checkbox-primary">
-                                                        <input type="checkbox" name="ids[]" value="1"><span></span>
-                                                    </label>
-                                                </td>
                                                 <td>${employee.eid}</td>
                                                 <td>${employee.name}</td>
                                                 <td>${employee.phone}</td>
@@ -170,7 +173,7 @@
                                                 </c:if>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath}/#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                        <a data-toggle="modal" data-target="#updateEmployee" data-whatever="${employee.isFire}" class="btn btn-xs btn-default edit" eid="${employee.eid}" href="javascript:void(0)" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
                                                         <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath}/#!" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>
                                                         <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath}/#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
                                                     </div>
@@ -220,6 +223,66 @@
             $('#search-field').val(field);
             $('#search-btn').html($(this).text() + ' <span class="caret"></span>');
         });
+        $('#updateEmployee').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var recipient = button.data('whatever')
+            var modal = $(this)
+            // modal.find('.modal-title').text('发送新消息给 ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        });
+        $(".edit").click(function () {
+            let index = $(".edit").index(this)
+            let eid = $(".edit").eq(index).attr("eid")
+            $.ajax({
+                type : "GET",
+                url : "${pageContext.request.contextPath}/admin/selectByPrimaryKey?eid=" + eid,
+                success : function(result) {
+                    $("#eid").val(result.eid)
+                    $("#name").val(result.name)
+                    $("#phone").val(result.phone)
+                    $("#password").val(result.password)
+                    $("#address").val(result.address)
+                    if (result.isFire == 0) {
+                        $("#isFire").attr("checked", false);
+                    } else if (result.isFire == 1) {
+                        $("#isFire").prop("checked","checked");
+                    }
+                },
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
+        });
+        $("#save-employee").click(function () {
+            let eid = $("#eid").val()
+            let name = $("#name").val()
+            let phone = $("#phone").val()
+            let password = $("#password").val()
+            let address = $("#address").val()
+            let list = {};
+            list.eid = eid
+            list.name = name
+            list.phone = phone
+            list.password = password
+            list.address = address
+            list.isFire = $("#isFire").prop("checked") == true ? 1 : 0
+            $.ajax({
+                type : "POST",
+                contentType: "application/json;charset=UTF-8",
+                url : "${pageContext.request.contextPath}/admin/updateByPrimaryKey",
+                data : JSON.stringify(list),
+                success : function(result) {
+                    if (result.status == 'success') {
+                        window.location.href = "${pageContext.request.contextPath}/admin/employee";
+                    }
+                },
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
+        })
     });
 </script>
 </body>

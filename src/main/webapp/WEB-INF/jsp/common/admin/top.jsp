@@ -22,9 +22,9 @@
 
             <ul class="topbar-right">
                 <li class="dropdown dropdown-profile">
-                    <a href="${pageContext.request.contextPath}/javascript:void(0)" data-toggle="dropdown">
+                    <a href="javascript:void(0)" data-toggle="dropdown">
                         <img class="img-avatar img-avatar-48 m-r-10" src="${pageContext.request.contextPath}/images/users/avatar.jpg" alt="笔下光年" />
-                        <span>${sessionScope.admin.name}<span class="caret"></span></span>
+                        <span>管理员：${sessionScope.admin.name}<span class="caret"></span></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li> <a href="${pageContext.request.contextPath}/lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>

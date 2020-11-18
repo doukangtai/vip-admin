@@ -1,12 +1,12 @@
 package com.dkt.controller;
 
 import com.dkt.entity.Employee;
-import com.dkt.mapper.EmployeeMapper;
+import com.dkt.result.ResponseBean;
+import com.dkt.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -20,20 +20,30 @@ import java.util.List;
 public class AdminEmployeeController {
 
     @Autowired
-    EmployeeMapper employeeMapper;
+    EmployeeService employeeService;
 
-//    @GetMapping("/admin/emp")
     @GetMapping("/employee")
-    public String test3(Model model) {
-        List<Employee> employees = employeeMapper.selectAll();
+    public String selectAllEmployee(Model model) {
+        List<Employee> employees = employeeService.selectAllEmployee();
         model.addAttribute("employees", employees);
         return "admin/employee";
     }
 
-    @GetMapping("/test3")
-    public String testModel(Model model) {
-        model.addAttribute("attr", "ABC");
-        return "customer/test";
+    @GetMapping("/selectByPrimaryKey")
+    @ResponseBody
+    public Employee selectByPrimaryKey(@RequestParam("eid") Integer eid) {
+        Employee employee = employeeService.selectByPrimaryKey(eid);
+        return employee;
+    }
+
+    @PostMapping("/updateByPrimaryKey")
+    @ResponseBody
+    public ResponseBean updateByPrimaryKey(@RequestBody Employee employee) {
+        int update = employeeService.updateByPrimaryKeySelective(employee);
+        if (update >= 1) {
+            return new ResponseBean("success", "修改员工信息成功");
+        }
+        return new ResponseBean("error", "修改员工信息失败");
     }
 
     @GetMapping("/test4")
