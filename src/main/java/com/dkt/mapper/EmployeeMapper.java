@@ -1,6 +1,7 @@
 package com.dkt.mapper;
 
 import com.dkt.entity.Employee;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -24,4 +25,10 @@ public interface EmployeeMapper {
     List<Employee> selectAllEmployee();
 
     Employee selectByPhonePasswordType(Employee employee);
+
+    List<Employee> selectByPage(@Param("startIndex") Integer startIndex, @Param("len") Integer len);
+
+    Employee selectByPhone(String phone);
+
+    Integer selectEmployeeTotalCount();
 }

@@ -33,7 +33,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/index")
+    @GetMapping("/page/index")
     public String index() {
         return "admin/index";
     }

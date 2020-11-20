@@ -4,10 +4,10 @@ package com.dkt.entity;
 *@author 窦康泰
 *@date 2020/11/19
 */
-public class Customer {
+public class CustomerVip {
     private Integer cid;
 
-    private Integer vid;
+    private Vip vip;
 
     private String name;
 
@@ -23,9 +23,9 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerVip{" +
                 "cid=" + cid +
-                ", vid=" + vid +
+                ", vip=" + vip +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
@@ -43,12 +43,12 @@ public class Customer {
         this.cid = cid;
     }
 
-    public Integer getVid() {
-        return vid;
+    public Vip getVip() {
+        return vip;
     }
 
-    public void setVid(Integer vid) {
-        this.vid = vid;
+    public void setVip(Vip vip) {
+        this.vip = vip;
     }
 
     public String getName() {

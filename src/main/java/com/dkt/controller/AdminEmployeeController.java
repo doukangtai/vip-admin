@@ -22,11 +22,42 @@ public class AdminEmployeeController {
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping("/employee")
+    @GetMapping("/employee/count")
+    @ResponseBody
+    public Integer getEmployeeTotalCount() {
+        return employeeService.selectEmployeeTotalCount();
+    }
+
+    @GetMapping("/page/employee/page")
+    @ResponseBody
+    public List<Employee> selectEmployeeByPage(@RequestParam(defaultValue = "0") Integer startIndex, @RequestParam(defaultValue = "5") Integer len) {
+        return employeeService.selectByPage(startIndex, len);
+    }
+
+    @GetMapping("/page/employee/all")
     public String selectAllEmployee(Model model) {
         List<Employee> employees = employeeService.selectAllEmployee();
         model.addAttribute("employees", employees);
         return "admin/employee";
+    }
+
+    @GetMapping("/page/employee/add")
+    public String addEmployeePage() {
+        return "admin/employee_add";
+    }
+
+    @PostMapping("/employee/add")
+    @ResponseBody
+    public ResponseBean addEmployee(@RequestBody Employee employee) {
+        Employee selectByPhone = employeeService.selectByPhone(employee.getPhone());
+        if (selectByPhone != null) {
+            return new ResponseBean("error", "员工存在添加失败");
+        }
+        int insert = employeeService.insert(employee);
+        if (insert >= 1) {
+            return new ResponseBean("success", "添加员工成功");
+        }
+        return new ResponseBean("error", "添加员工失败");
     }
 
     @GetMapping("/selectByPrimaryKey")
@@ -39,11 +70,7 @@ public class AdminEmployeeController {
     @PostMapping("/updateByPrimaryKey")
     @ResponseBody
     public ResponseBean updateByPrimaryKey(@RequestBody Employee employee) {
-        int update = employeeService.updateByPrimaryKeySelective(employee);
-        if (update >= 1) {
-            return new ResponseBean("success", "修改员工信息成功");
-        }
-        return new ResponseBean("error", "修改员工信息失败");
+        return employeeService.updateByPrimaryKeySelective(employee);
     }
 
     @GetMapping("/test4")

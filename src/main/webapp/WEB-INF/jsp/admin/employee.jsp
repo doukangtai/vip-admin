@@ -26,21 +26,19 @@
 
                 <nav class="sidebar-main">
                     <ul class="nav nav-drawer">
-                        <li class="nav-item active"> <a class="home" href="${pageContext.request.contextPath}/admin/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+                        <li class="nav-item active"> <a class="home" href="${pageContext.request.contextPath}/admin/page/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
                         <li class="nav-item nav-item-has-subnav active open">
                             <a href="javascript:void(0)"><i class="mdi mdi-home"></i> 员工管理</a>
                             <ul class="nav nav-subnav">
-                                <li class="active"> <a href="${pageContext.request.contextPath}/admin/employee">员工列表</a> </li>
-                                <li> <a href="javascript:void(0)">卡片</a> </li>
-                                <li> <a href="javascript:void(0)">格栅</a> </li>
-                                <li> <a href="javascript:void(0)">图标</a> </li>
+                                <li class="active"> <a href="${pageContext.request.contextPath}/admin/page/employee/all">员工列表</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/employee/add">添加员工</a> </li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
+                            <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 顾客管理</a>
                             <ul class="nav nav-subnav">
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer">顾客列表</a> </li>
                                 <li> <a href="javascript:void(0)">分页</a> </li>
-                                <li class="active"> <a href="javascript:void(0)">进度条</a> </li>
                                 <li> <a href="javascript:void(0)">标签页</a> </li>
                             </ul>
                         </li>
@@ -76,21 +74,6 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-toolbar clearfix">
-                                <form class="pull-right search-bar" method="get" action="#!" role="form">
-                                    <div class="input-group">
-                                        <div class="input-group-btn">
-                                            <input type="hidden" name="search_field" id="search-field" value="title">
-                                            <button class="btn btn-default dropdown-toggle" id="search-btn" data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false">
-                                                标题 <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li> <a tabindex="-1" href="${pageContext.request.contextPath}/javascript:void(0)" data-field="title">标题</a> </li>
-                                                <li> <a tabindex="-1" href="${pageContext.request.contextPath}/javascript:void(0)" data-field="cat_name">栏目</a> </li>
-                                            </ul>
-                                        </div>
-                                        <input type="text" class="form-control" value="" name="keyword" placeholder="请输入名称">
-                                    </div>
-                                </form>
                                 <div class="toolbar-btn-action">
                                     <div class="modal fade" id="updateEmployee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                                         <div class="modal-dialog" role="document">
@@ -136,10 +119,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a class="btn btn-primary m-r-5" href="${pageContext.request.contextPath}/#!"><i class="mdi mdi-plus"></i> 新增</a>
-                                    <a class="btn btn-success m-r-5" href="${pageContext.request.contextPath}/#!"><i class="mdi mdi-check"></i> 启用</a>
-                                    <a class="btn btn-warning m-r-5" href="${pageContext.request.contextPath}/#!"><i class="mdi mdi-block-helper"></i> 禁用</a>
-                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/#!"><i class="mdi mdi-window-close"></i> 删除</a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -158,46 +137,10 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${employees}" var="employee">
-                                            <tr>
-                                                <td>${employee.eid}</td>
-                                                <td>${employee.name}</td>
-                                                <td>${employee.phone}</td>
-                                                <td>${employee.password}</td>
-                                                <td>${employee.address}</td>
-                                                <c:if test="${employee.isFire == 0}">
-                                                    <td><font class="text-success">已离职</font></td>
-                                                </c:if>
-                                                <c:if test="${employee.isFire == 1}">
-                                                    <td><font class="text-success">任职中</font></td>
-                                                </c:if>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a data-toggle="modal" data-target="#updateEmployee" data-whatever="${employee.isFire}" class="btn btn-xs btn-default edit" eid="${employee.eid}" href="javascript:void(0)" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                        <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath}/#!" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>
-                                                        <a class="btn btn-xs btn-default" href="${pageContext.request.contextPath}/#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
                                         </tbody>
                                     </table>
+                                    <ul id="xjzPagination" class="pagination"></ul>
                                 </div>
-                                <ul class="pagination">
-                                    <li class="disabled"><span>«</span></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="${pageContext.request.contextPath}/#1">2</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#1">3</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#1">4</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#1">5</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#1">6</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#1">7</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#1">8</a></li>
-                                    <li class="disabled"><span>...</span></li>
-                                    <li><a href="${pageContext.request.contextPath}/#!">14452</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#!">14453</a></li>
-                                    <li><a href="${pageContext.request.contextPath}/#!">»</a></li>
-                                </ul>
 
                             </div>
                         </div>
@@ -216,8 +159,64 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/page/jquery.xjzPagination.min.js"></script>
 <script type="text/javascript">
     $(function(){
+        $(document).ready(function(){
+            $.ajax({
+                type : "GET",
+                url : "${pageContext.request.contextPath}/admin/employee/count",
+                success : function(result) {
+                    let remainder = result % 5
+                    let pageSize = Math.floor(result / 5)
+                    if (remainder != 0) {
+                        pageSize += 1
+                    }
+                    $("#xjzPagination").xjzPagination({
+                        totalPages: pageSize,
+                        onPageClick: function (currentPage) {
+                            $("table tbody").html('')
+                            $.ajax({
+                                type : "GET",
+                                url : "${pageContext.request.contextPath}/admin/page/employee/page?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
+                                success : function(result) {
+                                    for (let i in result) {
+                                        let temp = ''
+                                        if (result[i].isFire == 0) {
+                                            temp = "任职中";
+                                        } else {
+                                            temp = "被解雇"
+                                        }
+                                        let str = "<tr>\n" +
+                                            "<td>"+result[i].eid+"</td>\n" +
+                                            "<td>"+result[i].name+"</td>\n" +
+                                            "<td>"+result[i].phone+"</td>\n" +
+                                            "<td>"+result[i].password+"</td>\n" +
+                                            "<td>"+result[i].address+"</td>\n" +
+                                            "<td><font class=\"text-success\">"+temp+"</font></td>\n" +
+                                            "<td>\n" +
+                                            "<div class=\"btn-group\">\n" +
+                                            "<a class=\"btn btn-xs btn-default edit\" eid=\""+result[i].eid+"\" href=\"javascript:void(0)\" title=\"编辑\" data-toggle=\"modal\" data-target=\"#updateEmployee\"><i class=\"mdi mdi-pencil\"></i></a>\n" +
+                                            "</div>\n" +
+                                            "</td>\n" +
+                                            "</tr>"
+                                        $("tbody").append(str)
+                                    }
+                                },
+                                error : function(e){
+                                    console.log(e.status);
+                                    console.log(e.responseText);
+                                }
+                            });
+                        }
+                    });
+                },
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
+        });
         $('.search-bar .dropdown-menu a').click(function() {
             var field = $(this).data('field') || '';
             $('#search-field').val(field);
@@ -230,7 +229,7 @@
             // modal.find('.modal-title').text('发送新消息给 ' + recipient)
             modal.find('.modal-body input').val(recipient)
         });
-        $(".edit").click(function () {
+        $("tbody").on("click", ".edit", function () {
             let index = $(".edit").index(this)
             let eid = $(".edit").eq(index).attr("eid")
             $.ajax({
@@ -242,9 +241,9 @@
                     $("#phone").val(result.phone)
                     $("#password").val(result.password)
                     $("#address").val(result.address)
-                    if (result.isFire == 0) {
+                    if (result.isFire == 1) {
                         $("#isFire").attr("checked", false);
-                    } else if (result.isFire == 1) {
+                    } else if (result.isFire == 0) {
                         $("#isFire").prop("checked","checked");
                     }
                 },
@@ -266,7 +265,7 @@
             list.phone = phone
             list.password = password
             list.address = address
-            list.isFire = $("#isFire").prop("checked") == true ? 1 : 0
+            list.isFire = $("#isFire").prop("checked") == true ? 0 : 1
             $.ajax({
                 type : "POST",
                 contentType: "application/json;charset=UTF-8",
@@ -274,7 +273,7 @@
                 data : JSON.stringify(list),
                 success : function(result) {
                     if (result.status == 'success') {
-                        window.location.href = "${pageContext.request.contextPath}/admin/employee";
+                        window.location.href = "${pageContext.request.contextPath}/admin/page/employee/all";
                     }
                 },
                 error : function(e){
@@ -282,7 +281,7 @@
                     console.log(e.responseText);
                 }
             });
-        })
+        });
     });
 </script>
 </body>

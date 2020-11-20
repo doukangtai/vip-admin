@@ -1,7 +1,6 @@
 package com.dkt.controller;
 
 import com.dkt.entity.Customer;
-import com.dkt.entity.Employee;
 import com.dkt.result.ResponseBean;
 import com.dkt.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

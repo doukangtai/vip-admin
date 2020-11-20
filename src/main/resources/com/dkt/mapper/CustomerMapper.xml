@@ -112,5 +112,27 @@
 
   <select id="selectByPhonePassword" resultMap="BaseResultMap">
     SELECT * FROM customer WHERE phone=#{phone,jdbcType=VARCHAR} AND `password`=#{password,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByPage" resultType="com.dkt.entity.Customer">
+    SELECT * FROM customer LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByPhone" resultMap="BaseResultMap">
+    SELECT * FROM customer WHERE phone=#{phone,jdbcType=VARCHAR}
     </select>
+
+  <update id="saveMoneyByPhone">
+    update customer
+    set money = #{money,jdbcType=DOUBLE}
+    where phone = #{phone,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateIsLogoutVipToOne">
+    UPDATE customer SET is_logout_vip=1 WHERE cid=#{cid,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateIsLogoutVipToZero">
+    UPDATE customer SET is_logout_vip=0 WHERE cid=#{cid,jdbcType=INTEGER}
+  </update>
 </mapper>

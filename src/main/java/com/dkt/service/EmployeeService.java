@@ -1,6 +1,8 @@
 package com.dkt.service;
 
 import com.dkt.entity.Employee;
+import com.dkt.result.ResponseBean;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,6 +18,13 @@ public interface EmployeeService {
 
     Employee selectByPrimaryKey(Integer eid);
 
-    int updateByPrimaryKeySelective(Employee record);
+    ResponseBean updateByPrimaryKeySelective(Employee record);
 
+    int insert(Employee record);
+
+    List<Employee> selectByPage(@Param("startIndex") Integer startIndex, @Param("len") Integer len);
+
+    Employee selectByPhone(String phone);
+
+    Integer selectEmployeeTotalCount();
 }

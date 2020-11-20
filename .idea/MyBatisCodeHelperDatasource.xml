@@ -51,6 +51,18 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="vip:vip">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="vid" />
+                  <option name="javaModelName" value="Vip" />
+                  <option name="moduleName" value="vip" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
           </map>
         </option>
         <option name="xmlMapperPackage" value="com.dkt.mapper" />

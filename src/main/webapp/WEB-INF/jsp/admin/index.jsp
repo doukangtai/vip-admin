@@ -25,21 +25,19 @@
 
                 <nav class="sidebar-main">
                     <ul class="nav nav-drawer">
-                        <li class="nav-item active"> <a class="home" href="${pageContext.request.contextPath}/admin/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+                        <li class="nav-item active"> <a class="home" href="${pageContext.request.contextPath}/admin/page/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
                         <li class="nav-item nav-item-has-subnav">
                             <a href="javascript:void(0)"><i class="mdi mdi-home"></i> 员工管理</a>
                             <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/admin/employee">员工列表</a> </li>
-                                <li> <a href="javascript:void(0)">卡片</a> </li>
-                                <li> <a href="javascript:void(0)">格栅</a> </li>
-                                <li> <a href="javascript:void(0)">图标</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/employee/all">员工列表</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/employee/add">添加员工</a> </li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 示例页面</a>
+                            <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 顾客管理</a>
                             <ul class="nav nav-subnav">
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer">顾客列表</a> </li>
                                 <li> <a href="javascript:void(0)">分页</a> </li>
-                                <li class="active"> <a href="javascript:void(0)">进度条</a> </li>
                                 <li> <a href="javascript:void(0)">标签页</a> </li>
                             </ul>
                         </li>

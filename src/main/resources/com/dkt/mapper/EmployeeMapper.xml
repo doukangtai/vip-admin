@@ -111,10 +111,22 @@
   </update>
 
   <select id="selectAllEmployee" resultMap="BaseResultMap">
-    SELECT * FROM employee WHERE type=0
+    SELECT * FROM employee WHERE type=0 ORDER BY is_fire DESC,eid DESC
     </select>
 
   <select id="selectByPhonePasswordType" resultMap="BaseResultMap">
     SELECT * FROM employee WHERE phone=#{phone,jdbcType=VARCHAR} AND `password`=#{password,jdbcType=VARCHAR} AND type=#{type,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectByPage" resultMap="BaseResultMap">
+    SELECT * FROM employee WHERE type=0 LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByPhone" resultMap="BaseResultMap">
+    SELECT * FROM employee WHERE phone=#{phone,jdbcType=VARCHAR}
+    </select>
+
+  <select id="selectEmployeeTotalCount" resultType="java.lang.Integer">
+    SELECT COUNT(0) FROM employee WHERE type=0
+    </select>
 </mapper>
