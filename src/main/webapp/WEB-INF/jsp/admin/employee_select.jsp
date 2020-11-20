@@ -145,9 +145,26 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <tr>
+                                            <td>${employee.eid}</td>
+                                            <td>${employee.name}</td>
+                                            <td>${employee.phone}</td>
+                                            <td>${employee.password}</td>
+                                            <td>${employee.address}</td>
+                                            <c:if test="${employee.isFire == 0}">
+                                                <td><font class="text-success">任职中</font></td>
+                                            </c:if>
+                                            <c:if test="${employee.isFire == 1}">
+                                                <td><font class="text-success">被解雇</font></td>
+                                            </c:if>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a class="btn btn-xs btn-default edit" eid="${employee.eid}" href="javascript:void(0)" title="编辑" data-toggle="modal" data-target="#updateEmployee"><i class="mdi mdi-pencil"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
-                                    <ul id="xjzPagination" class="pagination"></ul>
                                 </div>
 
                             </div>
@@ -170,61 +187,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/page/jquery.xjzPagination.min.js"></script>
 <script type="text/javascript">
     $(function(){
-        $(document).ready(function(){
-            $.ajax({
-                type : "GET",
-                url : "${pageContext.request.contextPath}/admin/employee/count",
-                success : function(result) {
-                    let remainder = result % 5
-                    let pageSize = Math.floor(result / 5)
-                    if (remainder != 0) {
-                        pageSize += 1
-                    }
-                    $("#xjzPagination").xjzPagination({
-                        totalPages: pageSize,
-                        onPageClick: function (currentPage) {
-                            $("table tbody").html('')
-                            $.ajax({
-                                type : "GET",
-                                url : "${pageContext.request.contextPath}/admin/page/employee/page?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
-                                success : function(result) {
-                                    for (let i in result) {
-                                        let temp = ''
-                                        if (result[i].isFire == 0) {
-                                            temp = "任职中";
-                                        } else {
-                                            temp = "被解雇"
-                                        }
-                                        let str = "<tr>\n" +
-                                            "<td>"+result[i].eid+"</td>\n" +
-                                            "<td>"+result[i].name+"</td>\n" +
-                                            "<td>"+result[i].phone+"</td>\n" +
-                                            "<td>"+result[i].password+"</td>\n" +
-                                            "<td>"+result[i].address+"</td>\n" +
-                                            "<td><font class=\"text-success\">"+temp+"</font></td>\n" +
-                                            "<td>\n" +
-                                            "<div class=\"btn-group\">\n" +
-                                            "<a class=\"btn btn-xs btn-default edit\" eid=\""+result[i].eid+"\" href=\"javascript:void(0)\" title=\"编辑\" data-toggle=\"modal\" data-target=\"#updateEmployee\"><i class=\"mdi mdi-pencil\"></i></a>\n" +
-                                            "</div>\n" +
-                                            "</td>\n" +
-                                            "</tr>"
-                                        $("tbody").append(str)
-                                    }
-                                },
-                                error : function(e){
-                                    console.log(e.status);
-                                    console.log(e.responseText);
-                                }
-                            });
-                        }
-                    });
-                },
-                error : function(e){
-                    console.log(e.status);
-                    console.log(e.responseText);
-                }
-            });
-        });
         $('.search-bar .dropdown-menu a').click(function() {
             var field = $(this).data('field') || '';
             $('#search-field').val(field);

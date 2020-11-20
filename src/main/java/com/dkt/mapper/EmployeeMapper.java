@@ -31,4 +31,12 @@ public interface EmployeeMapper {
     Employee selectByPhone(String phone);
 
     Integer selectEmployeeTotalCount();
+
+    Integer selectEmployeeTotalCountFire();
+
+    List<Employee> selectEmployeeFireByPage(@Param("startIndex") Integer startIndex, @Param("len") Integer len);
+
+    Integer selectEmployeeTotalCountNotFire();
+
+    List<Employee> selectEmployeeNotFireByPage(@Param("startIndex") Integer startIndex, @Param("len") Integer len);
 }

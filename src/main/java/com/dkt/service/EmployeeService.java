@@ -27,4 +27,12 @@ public interface EmployeeService {
     Employee selectByPhone(String phone);
 
     Integer selectEmployeeTotalCount();
+
+    Integer selectEmployeeTotalCountFire();
+
+    List<Employee> selectEmployeeFireByPage(Integer startIndex, Integer len);
+
+    Integer selectEmployeeTotalCountNotFire();
+
+    List<Employee> selectEmployeeNotFireByPage(Integer startIndex, Integer len);
 }

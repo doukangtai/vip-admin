@@ -129,4 +129,20 @@
   <select id="selectEmployeeTotalCount" resultType="java.lang.Integer">
     SELECT COUNT(0) FROM employee WHERE type=0
     </select>
+
+  <select id="selectEmployeeTotalCountFire" resultType="java.lang.Integer">
+    SELECT COUNT(0) FROM employee WHERE type=0 AND is_fire=1
+  </select>
+
+  <select id="selectEmployeeFireByPage" resultMap="BaseResultMap">
+    SELECT * FROM employee WHERE type=0 AND is_fire=1 LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectEmployeeTotalCountNotFire" resultType="java.lang.Integer">
+    SELECT COUNT(0) FROM employee WHERE type=0 AND is_fire=0
+  </select>
+
+  <select id="selectEmployeeNotFireByPage" resultMap="BaseResultMap">
+    SELECT * FROM employee WHERE type=0 AND is_fire=0 LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+  </select>
 </mapper>

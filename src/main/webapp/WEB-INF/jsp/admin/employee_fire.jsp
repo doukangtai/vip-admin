@@ -173,20 +173,21 @@
         $(document).ready(function(){
             $.ajax({
                 type : "GET",
-                url : "${pageContext.request.contextPath}/admin/employee/count",
+                url : "${pageContext.request.contextPath}/admin/employee/count/fire",
                 success : function(result) {
                     let remainder = result % 5
                     let pageSize = Math.floor(result / 5)
                     if (remainder != 0) {
                         pageSize += 1
                     }
+                    console.log(result)
                     $("#xjzPagination").xjzPagination({
                         totalPages: pageSize,
                         onPageClick: function (currentPage) {
                             $("table tbody").html('')
                             $.ajax({
                                 type : "GET",
-                                url : "${pageContext.request.contextPath}/admin/page/employee/page?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
+                                url : "${pageContext.request.contextPath}/admin/page/employee/page/fire?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
                                 success : function(result) {
                                     for (let i in result) {
                                         let temp = ''
