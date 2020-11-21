@@ -11,6 +11,15 @@ public class Fee {
 
     private Double price;
 
+    @Override
+    public String toString() {
+        return "Fee{" +
+                "fid=" + fid +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     public Integer getFid() {
         return fid;
     }

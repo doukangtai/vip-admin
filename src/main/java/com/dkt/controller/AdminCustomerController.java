@@ -65,10 +65,10 @@ public class AdminCustomerController {
         return customerService.customerCharge(phone, charge);
     }
 
-    @GetMapping("/customer/cost/{phone}/{charge:.*}")
+    @GetMapping("/customer/cost/{phone}/{fid}")
     @ResponseBody
-    public ResponseBean customerCost(@PathVariable("phone") String phone, @PathVariable("charge") Double charge) {
-        return customerService.customerCost(phone, charge);
+    public ResponseBean customerCost(@PathVariable("phone") String phone, @PathVariable("fid") Integer fid, HttpSession session) {
+        return customerService.customerCost(phone, fid, session);
     }
 
     @GetMapping("/allVip")

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dkt.mapper.LogMapper">
+  <resultMap id="BaseResultMap" type="com.dkt.entity.Log">
+    <!--@Table log-->
+    <id column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="fname" jdbcType="VARCHAR" property="fname" />
+    <result column="fprice" jdbcType="DOUBLE" property="fprice" />
+    <result column="vname" jdbcType="VARCHAR" property="vname" />
+    <result column="vdiscount" jdbcType="DOUBLE" property="vdiscount" />
+    <result column="money" jdbcType="DOUBLE" property="money" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lid, eid, cid, fname, fprice, vname, vdiscount, money, `time`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from log
+    where lid = #{lid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from log
+    where lid = #{lid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="lid" keyProperty="lid" parameterType="com.dkt.entity.Log" useGeneratedKeys="true">
+    insert into log (eid, cid, fname, 
+      fprice, vname, vdiscount, 
+      money, `time`)
+    values (#{eid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, #{fname,jdbcType=VARCHAR}, 
+      #{fprice,jdbcType=DOUBLE}, #{vname,jdbcType=VARCHAR}, #{vdiscount,jdbcType=DOUBLE}, 
+      #{money,jdbcType=DOUBLE}, #{time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="lid" keyProperty="lid" parameterType="com.dkt.entity.Log" useGeneratedKeys="true">
+    insert into log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="fname != null">
+        fname,
+      </if>
+      <if test="fprice != null">
+        fprice,
+      </if>
+      <if test="vname != null">
+        vname,
+      </if>
+      <if test="vdiscount != null">
+        vdiscount,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="fname != null">
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fprice != null">
+        #{fprice,jdbcType=DOUBLE},
+      </if>
+      <if test="vname != null">
+        #{vname,jdbcType=VARCHAR},
+      </if>
+      <if test="vdiscount != null">
+        #{vdiscount,jdbcType=DOUBLE},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dkt.entity.Log">
+    update log
+    <set>
+      <if test="eid != null">
+        eid = #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="fname != null">
+        fname = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fprice != null">
+        fprice = #{fprice,jdbcType=DOUBLE},
+      </if>
+      <if test="vname != null">
+        vname = #{vname,jdbcType=VARCHAR},
+      </if>
+      <if test="vdiscount != null">
+        vdiscount = #{vdiscount,jdbcType=DOUBLE},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="time != null">
+        `time` = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lid = #{lid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dkt.entity.Log">
+    update log
+    set eid = #{eid,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER},
+      fname = #{fname,jdbcType=VARCHAR},
+      fprice = #{fprice,jdbcType=DOUBLE},
+      vname = #{vname,jdbcType=VARCHAR},
+      vdiscount = #{vdiscount,jdbcType=DOUBLE},
+      money = #{money,jdbcType=DOUBLE},
+      `time` = #{time,jdbcType=TIMESTAMP}
+    where lid = #{lid,jdbcType=INTEGER}
+  </update>
+</mapper>

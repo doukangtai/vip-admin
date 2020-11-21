@@ -63,6 +63,18 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="vip:log">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="lid" />
+                  <option name="javaModelName" value="Log" />
+                  <option name="moduleName" value="vip" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="vip:vip">
               <value>
                 <TableGenerateConfig>

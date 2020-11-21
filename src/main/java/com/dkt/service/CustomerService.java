@@ -6,6 +6,7 @@ import com.dkt.entity.Employee;
 import com.dkt.result.ResponseBean;
 import org.apache.ibatis.annotations.Param;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public interface CustomerService {
 
     ResponseBean customerCharge(String phone, Double charge);
 
-    ResponseBean customerCost(String phone, Double charge);
+    ResponseBean customerCost(String phone, Integer fid, HttpSession session);
 
     CustomerVip selectCustomerVipByPhone(String phone);
 
