@@ -19,8 +19,6 @@ public class CustomerVip {
 
     private String isLogoutVip;
 
-    private String isDelete;
-
     @Override
     public String toString() {
         return "CustomerVip{" +
@@ -31,7 +29,6 @@ public class CustomerVip {
                 ", password='" + password + '\'' +
                 ", money=" + money +
                 ", isLogoutVip='" + isLogoutVip + '\'' +
-                ", isDelete='" + isDelete + '\'' +
                 '}';
     }
 
@@ -89,13 +86,5 @@ public class CustomerVip {
 
     public void setIsLogoutVip(String isLogoutVip) {
         this.isLogoutVip = isLogoutVip;
-    }
-
-    public String getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(String isDelete) {
-        this.isDelete = isDelete;
     }
 }

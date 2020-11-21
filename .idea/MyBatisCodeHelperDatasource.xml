@@ -51,6 +51,18 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="vip:fee">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="fid" />
+                  <option name="javaModelName" value="Fee" />
+                  <option name="moduleName" value="vip" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="vip:vip">
               <value>
                 <TableGenerateConfig>

@@ -39,7 +39,7 @@
                             <ul class="nav nav-subnav">
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/customer">顾客列表</a> </li>
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/customer/add">添加顾客</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer/charge">顾客收费、充值</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer/charge">顾客结账、充值</a> </li>
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/customer/update">修改顾客信息</a> </li>
                                 <li class="active"> <a href="${pageContext.request.contextPath}/admin/page/customer/recycle">回收站</a> </li>
                             </ul>

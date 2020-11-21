@@ -39,7 +39,7 @@
                             <ul class="nav nav-subnav">
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/customer">顾客列表</a> </li>
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/customer/add">添加顾客</a> </li>
-                                <li class="active"> <a href="${pageContext.request.contextPath}/admin/page/customer/charge">顾客收费、充值</a> </li>
+                                <li class="active"> <a href="${pageContext.request.contextPath}/admin/page/customer/charge">顾客结账、充值</a> </li>
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/customer/update">修改顾客信息</a> </li>
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/customer/recycle">回收站</a> </li>
                             </ul>
@@ -93,13 +93,36 @@
                                         <label for="money">余额</label>
                                         <input disabled type="text" class="form-control" id="money" name="money" value="" placeholder="顾客余额" />
                                     </div>
+<%--                                    <div class="form-group col-md-12">--%>
+<%--                                        <label for="charge">结账、充值金额</label>--%>
+<%--                                        <input type="text" class="form-control" id="charge" name="charge" value="" placeholder="请输入结账或充值金额" />--%>
+<%--                                    </div>--%>
+<%--                                    <div class="form-group col-md-12">--%>
+<%--                                        <button id="customer-cost" type="button" class="btn btn-yellow btn-primary">结 账</button>--%>
+<%--                                        <button id="customer-charge" type="button" class="btn btn-info btn-primary">充 值</button>--%>
+<%--                                    </div>--%>
                                     <div class="form-group col-md-12">
-                                        <label for="charge">收费、充值金额</label>
-                                        <input type="text" class="form-control" id="charge" name="charge" value="" placeholder="请输入收费或充值金额" />
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <button id="customer-cost" type="button" class="btn btn-yellow btn-primary">收 费</button>
-                                        <button id="customer-charge" type="button" class="btn btn-info btn-primary">充 值</button>
+                                        <div class="row">
+                                            <label class="col-xs-6" for="cost">结账</label>
+                                            <label class="col-xs-6" for="charge">充值</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-controls col-xs-6">
+                                                <select name="cost" class="form-control" id="cost">
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <input id="charge" class="form-control" type="text" placeholder="请输入充值金额">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6" style="margin-top: 10px">
+                                                <button id="customer-cost" type="button" class="btn btn-yellow btn-primary">结 账</button>
+                                            </div>
+                                            <div class="col-xs-6" style="margin-top: 10px">
+                                                <button id="customer-charge" type="button" class="btn btn-info btn-primary">充 值</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
 
@@ -126,6 +149,22 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/main.min.js"></script>
 <script type="text/javascript">
     $(function(){
+        $(document).ready(function(){
+            $.ajax({
+                type : "GET",
+                url : "${pageContext.request.contextPath}/admin/allFee",
+                success : function(result) {
+                    $("#cost option").remove()
+                    for (let i in result) {
+                        $("#cost").append("<option value=\""+result[i].fid+"\">"+result[i].name+"---"+result[i].price+"元"+"</option>")
+                    }
+                },
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
+        });
         $('#select-customer').click(function () {
             $.ajax({
                 type : "GET",
@@ -160,7 +199,7 @@
         $('#customer-cost').click(function () {
             $.ajax({
                 type : "GET",
-                url : "${pageContext.request.contextPath}/admin/customer/cost/" + $("#phone").val() + "/" + $("#charge").val(),
+                url : "${pageContext.request.contextPath}/admin/customer/cost/" + $("#phone").val() + "/" + $("#cost option:selected").val(),
                 success : function(result) {
                     $('#name').val('');
                     $('#money').val('');

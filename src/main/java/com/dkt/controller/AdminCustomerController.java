@@ -1,12 +1,10 @@
 package com.dkt.controller;
 
-import com.dkt.entity.Customer;
-import com.dkt.entity.CustomerVip;
-import com.dkt.entity.Employee;
-import com.dkt.entity.Vip;
+import com.dkt.entity.*;
 import com.dkt.result.ResponseBean;
 import com.dkt.service.CustomerService;
 import com.dkt.service.EmployeeService;
+import com.dkt.service.FeeService;
 import com.dkt.service.VipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -28,6 +28,18 @@ public class AdminCustomerController {
     CustomerService customerService;
     @Autowired
     VipService vipService;
+    @Autowired
+    FeeService feeService;
+
+    @GetMapping("/show/session")
+    public void showSession(HttpSession session) {
+        Enumeration<String> attributeNames = session.getAttributeNames();
+        while (attributeNames.hasMoreElements()) {
+            String sessionName = attributeNames.nextElement();
+            System.out.println(sessionName);
+            System.out.println(session.getAttribute(sessionName));
+        }
+    }
 
     @GetMapping("/customer/{phone}")
     @ResponseBody
@@ -63,6 +75,12 @@ public class AdminCustomerController {
     @ResponseBody
     public List<Vip> selectAllVip() {
         return vipService.selectAll();
+    }
+
+    @GetMapping("/allFee")
+    @ResponseBody
+    public List<Fee> selectAllFee() {
+        return feeService.selectAll();
     }
 
     @PostMapping("/customer/add")

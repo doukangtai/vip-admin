@@ -119,7 +119,7 @@
 
         <!--页面主要内容-->
         <main class="lyear-layout-content">
-
+            <button id="btn1">btn1</button>
             <div class="container-fluid">
 
                 <div class="row">
@@ -382,6 +382,20 @@
             data: $dashChartLinesData,
         });
     });
+    $(function () {
+        $("#btn1").click(function () {
+            $.ajax({
+                type : "GET",
+                url : "${pageContext.request.contextPath}/admin/show/session",
+                success: function (result) {
+                    console.log(result)
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            })
+        })
+    })
 </script>
 </body>
 </html>
