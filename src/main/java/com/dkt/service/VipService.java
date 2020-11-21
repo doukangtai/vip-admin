@@ -2,6 +2,7 @@ package com.dkt.service;
 
 import com.dkt.entity.Employee;
 import com.dkt.entity.Vip;
+import com.dkt.result.ResponseBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,5 +14,9 @@ import java.util.List;
 public interface VipService {
 
     List<Vip> selectAll();
+
+    Vip selectByPrimaryKey(Integer vid);
+
+    ResponseBean updateByPrimaryKeySelective(Vip record);
 
 }
