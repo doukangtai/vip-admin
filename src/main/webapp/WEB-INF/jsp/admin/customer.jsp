@@ -134,7 +134,7 @@
                             $("table tbody").html('')
                             $.ajax({
                                 type : "GET",
-                                url : "${pageContext.request.contextPath}/admin/page/customer/page?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
+                                url : "${pageContext.request.contextPath}/admin/customer/page?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
                                 success : function(result) {
                                     for (let i in result) {
                                         let temp = ''

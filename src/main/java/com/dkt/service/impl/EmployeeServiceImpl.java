@@ -88,4 +88,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> selectEmployeeNotFireByPage(Integer startIndex, Integer len) {
         return employeeMapper.selectEmployeeNotFireByPage(startIndex, len);
     }
+
+    @Override
+    public ResponseBean addEmployee(Employee employee) {
+        Employee selectByPhone = selectByPhone(employee.getPhone());
+        if (selectByPhone != null) {
+            return new ResponseBean("error", "员工存在添加失败");
+        }
+        int insert = insert(employee);
+        if (insert >= 1) {
+            return new ResponseBean("success", "添加员工成功");
+        }
+        return new ResponseBean("error", "添加员工失败");
+    }
 }

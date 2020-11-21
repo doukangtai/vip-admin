@@ -29,21 +29,6 @@ public class AdminCustomerController {
     @Autowired
     VipService vipService;
 
-    @GetMapping("/page/customer")
-    public String selectCustomerByPage() {
-        return "admin/customer";
-    }
-
-    @GetMapping("/page/customer/recycle")
-    public String customerRecyclePage() {
-        return "admin/customer_recycle";
-    }
-
-    @GetMapping("/page/customer/update")
-    public String customerUpdatePage() {
-        return "admin/customer_update";
-    }
-
     @GetMapping("/customer/{phone}")
     @ResponseBody
     public Customer selectCustomerByPhone(@PathVariable("phone") String phone) {
@@ -62,22 +47,16 @@ public class AdminCustomerController {
         return customerService.selectCustomerVipByPhone(phone);
     }
 
-    @GetMapping("/customer/{phone}/{charge}")
+    @GetMapping("/customer/{phone}/{charge:.*}")
     @ResponseBody
     public ResponseBean customerCharge(@PathVariable("phone") String phone, @PathVariable("charge") Double charge) {
         return customerService.customerCharge(phone, charge);
     }
 
-    @GetMapping("/customer/cost/{phone}/{charge}")
+    @GetMapping("/customer/cost/{phone}/{charge:.*}")
     @ResponseBody
     public ResponseBean customerCost(@PathVariable("phone") String phone, @PathVariable("charge") Double charge) {
         return customerService.customerCost(phone, charge);
-    }
-
-    @GetMapping("/page/customer/add")
-    public String customerAddPage(Model model) {
-        model.addAttribute("vips", vipService.selectAll());
-        return "admin/customer_add";
     }
 
     @GetMapping("/allVip")
@@ -86,24 +65,19 @@ public class AdminCustomerController {
         return vipService.selectAll();
     }
 
-    @GetMapping("/page/customer/charge")
-    public String customerChargePage() {
-        return "admin/customer_charge";
-    }
-
     @PostMapping("/customer/add")
     @ResponseBody
     public ResponseBean customerAdd(@RequestBody Customer customer) {
         return customerService.customerAdd(customer);
     }
 
-    @GetMapping("/page/customer/page")
+    @GetMapping("/customer/page")
     @ResponseBody
     public List<CustomerVip> selectCustomerByPage2(@RequestParam(defaultValue = "0") Integer startIndex, @RequestParam(defaultValue = "5") Integer len) {
         return customerService.selectByPage(startIndex, len);
     }
 
-    @GetMapping("/page/customer/page/delete")
+    @GetMapping("/customer/page/delete")
     @ResponseBody
     public List<CustomerVip> selectDeleteCustomerByPage(@RequestParam(defaultValue = "0") Integer startIndex, @RequestParam(defaultValue = "5") Integer len) {
         return customerService.selectDeleteByPage(startIndex, len);
@@ -131,5 +105,31 @@ public class AdminCustomerController {
     @ResponseBody
     public ResponseBean recycleCustomerByCid(@RequestParam Integer cid) {
         return customerService.recycleCustomer(cid);
+    }
+
+    @GetMapping("/page/customer")
+    public String selectCustomerByPage() {
+        return "admin/customer";
+    }
+
+    @GetMapping("/page/customer/recycle")
+    public String customerRecyclePage() {
+        return "admin/customer_recycle";
+    }
+
+    @GetMapping("/page/customer/update")
+    public String customerUpdatePage() {
+        return "admin/customer_update";
+    }
+
+    @GetMapping("/page/customer/add")
+    public String customerAddPage(Model model) {
+        model.addAttribute("vips", vipService.selectAll());
+        return "admin/customer_add";
+    }
+
+    @GetMapping("/page/customer/charge")
+    public String customerChargePage() {
+        return "admin/customer_charge";
     }
 }

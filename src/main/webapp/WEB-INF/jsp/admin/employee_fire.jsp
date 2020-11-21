@@ -187,7 +187,7 @@
                             $("table tbody").html('')
                             $.ajax({
                                 type : "GET",
-                                url : "${pageContext.request.contextPath}/admin/page/employee/page/fire?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
+                                url : "${pageContext.request.contextPath}/admin/employee/page/fire?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
                                 success : function(result) {
                                     for (let i in result) {
                                         let temp = ''
@@ -243,7 +243,7 @@
             let eid = $(".edit").eq(index).attr("eid")
             $.ajax({
                 type : "GET",
-                url : "${pageContext.request.contextPath}/admin/selectByPrimaryKey?eid=" + eid,
+                url : "${pageContext.request.contextPath}/admin/employee/selectByPrimaryKey?eid=" + eid,
                 success : function(result) {
                     $("#eid").val(result.eid)
                     $("#name").val(result.name)
@@ -278,7 +278,7 @@
             $.ajax({
                 type : "POST",
                 contentType: "application/json;charset=UTF-8",
-                url : "${pageContext.request.contextPath}/admin/updateByPrimaryKey",
+                url : "${pageContext.request.contextPath}/admin/employee/updateByPrimaryKey",
                 data : JSON.stringify(list),
                 success : function(result) {
                     alert(result.msg)

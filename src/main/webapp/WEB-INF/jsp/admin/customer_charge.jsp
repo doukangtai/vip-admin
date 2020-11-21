@@ -143,7 +143,7 @@
         $('#customer-charge').click(function () {
             $.ajax({
                 type : "GET",
-                url : "${pageContext.request.contextPath}/admin/customer/" + $("#phone").val() + "?charge=" + $("#charge").val(),
+                url : "${pageContext.request.contextPath}/admin/customer/" + $("#phone").val() + "/" + $("#charge").val(),
                 success : function(result) {
                     $('#name').val('');
                     $('#money').val('');

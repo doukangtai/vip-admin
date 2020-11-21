@@ -40,22 +40,40 @@ public class AdminEmployeeController {
         return employeeService.selectEmployeeTotalCountNotFire();
     }
 
-    @GetMapping("/page/employee/page")
+    @GetMapping("/employee/page")
     @ResponseBody
     public List<Employee> selectEmployeeByPage(@RequestParam(defaultValue = "0") Integer startIndex, @RequestParam(defaultValue = "5") Integer len) {
         return employeeService.selectByPage(startIndex, len);
     }
 
-    @GetMapping("/page/employee/page/fire")
+    @GetMapping("/employee/page/fire")
     @ResponseBody
     public List<Employee> selectEmployeeFireByPage(@RequestParam(defaultValue = "0") Integer startIndex, @RequestParam(defaultValue = "5") Integer len) {
         return employeeService.selectEmployeeFireByPage(startIndex, len);
     }
 
-    @GetMapping("/page/employee/page/notFire")
+    @GetMapping("/employee/page/notFire")
     @ResponseBody
     public List<Employee> selectEmployeeNotFireByPage(@RequestParam(defaultValue = "0") Integer startIndex, @RequestParam(defaultValue = "5") Integer len) {
         return employeeService.selectEmployeeNotFireByPage(startIndex, len);
+    }
+
+    @PostMapping("/employee/add")
+    @ResponseBody
+    public ResponseBean addEmployee(@RequestBody Employee employee) {
+        return employeeService.addEmployee(employee);
+    }
+
+    @GetMapping("/employee/selectByPrimaryKey")
+    @ResponseBody
+    public Employee selectByPrimaryKey(@RequestParam("eid") Integer eid) {
+        return employeeService.selectByPrimaryKey(eid);
+    }
+
+    @PostMapping("/employee/updateByPrimaryKey")
+    @ResponseBody
+    public ResponseBean updateByPrimaryKey(@RequestBody Employee employee) {
+        return employeeService.updateByPrimaryKeySelective(employee);
     }
 
     @GetMapping("/page/employee/all")
@@ -84,32 +102,5 @@ public class AdminEmployeeController {
     @GetMapping("/page/employee/add")
     public String addEmployeePage() {
         return "admin/employee_add";
-    }
-
-    @PostMapping("/employee/add")
-    @ResponseBody
-    public ResponseBean addEmployee(@RequestBody Employee employee) {
-        Employee selectByPhone = employeeService.selectByPhone(employee.getPhone());
-        if (selectByPhone != null) {
-            return new ResponseBean("error", "员工存在添加失败");
-        }
-        int insert = employeeService.insert(employee);
-        if (insert >= 1) {
-            return new ResponseBean("success", "添加员工成功");
-        }
-        return new ResponseBean("error", "添加员工失败");
-    }
-
-    @GetMapping("/selectByPrimaryKey")
-    @ResponseBody
-    public Employee selectByPrimaryKey(@RequestParam("eid") Integer eid) {
-        Employee employee = employeeService.selectByPrimaryKey(eid);
-        return employee;
-    }
-
-    @PostMapping("/updateByPrimaryKey")
-    @ResponseBody
-    public ResponseBean updateByPrimaryKey(@RequestBody Employee employee) {
-        return employeeService.updateByPrimaryKeySelective(employee);
     }
 }

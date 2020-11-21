@@ -3,6 +3,7 @@ package com.dkt.service;
 import com.dkt.entity.Employee;
 import com.dkt.result.ResponseBean;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -35,4 +36,6 @@ public interface EmployeeService {
     Integer selectEmployeeTotalCountNotFire();
 
     List<Employee> selectEmployeeNotFireByPage(Integer startIndex, Integer len);
+
+    ResponseBean addEmployee(Employee employee);
 }
