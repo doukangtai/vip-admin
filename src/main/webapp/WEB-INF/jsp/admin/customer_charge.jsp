@@ -93,14 +93,6 @@
                                         <label for="money">余额</label>
                                         <input disabled type="text" class="form-control" id="money" name="money" value="" placeholder="顾客余额" />
                                     </div>
-<%--                                    <div class="form-group col-md-12">--%>
-<%--                                        <label for="charge">结账、充值金额</label>--%>
-<%--                                        <input type="text" class="form-control" id="charge" name="charge" value="" placeholder="请输入结账或充值金额" />--%>
-<%--                                    </div>--%>
-<%--                                    <div class="form-group col-md-12">--%>
-<%--                                        <button id="customer-cost" type="button" class="btn btn-yellow btn-primary">结 账</button>--%>
-<%--                                        <button id="customer-charge" type="button" class="btn btn-info btn-primary">充 值</button>--%>
-<%--                                    </div>--%>
                                     <div class="form-group col-md-12">
                                         <div class="row">
                                             <label class="col-xs-6" for="cost">结账</label>

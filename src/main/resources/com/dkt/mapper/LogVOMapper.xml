@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dkt.mapper.LogVOMapper">
+    <resultMap id="BaseResultMap" type="com.dkt.entity.LogVO">
+        <id column="lid" jdbcType="INTEGER" property="lid" />
+        <result column="cname" jdbcType="VARCHAR" property="cname" />
+        <result column="cphone" jdbcType="VARCHAR" property="cphone" />
+        <result column="ename" jdbcType="VARCHAR" property="ename" />
+        <result column="ephone" jdbcType="VARCHAR" property="ephone" />
+        <result column="fname" jdbcType="VARCHAR" property="fname" />
+        <result column="fprice" jdbcType="DOUBLE" property="fprice" />
+        <result column="vname" jdbcType="VARCHAR" property="vname" />
+        <result column="vdiscount" jdbcType="DOUBLE" property="vdiscount" />
+        <result column="money" jdbcType="DOUBLE" property="money" />
+        <result column="time" jdbcType="TIMESTAMP" property="time" />
+    </resultMap>
+
+    <select id="selectByPage" resultMap="BaseResultMap">
+        SELECT l.lid,c.`name` cname,c.phone cphone,e.`name` ename,e.phone ephone,l.fname,l.fprice,l.vname,l.vdiscount,l.money,l.time FROM log l,employee e,customer c WHERE l.eid=e.eid AND l.cid=c.cid ORDER BY l.time DESC LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectTotalCount" resultType="java.lang.Integer">
+        SELECT COUNT(0) FROM log
+    </select>
+
+    <select id="selectCountCustomerByPhone" resultType="java.lang.Integer">
+        SELECT COUNT(0) FROM log l,customer c WHERE l.cid=c.cid AND c.phone=#{phone,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByPageCustomerPhone" resultMap="BaseResultMap">
+        SELECT l.lid,c.`name` cname,c.phone cphone,e.`name` ename,e.phone ephone,l.fname,l.fprice,l.vname,l.vdiscount,l.money,l.time FROM log l,employee e,customer c WHERE l.eid=e.eid AND l.cid=c.cid AND c.phone=#{phone,jdbcType=VARCHAR} ORDER BY l.time DESC LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+    </select>
+</mapper>
