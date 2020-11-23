@@ -131,4 +131,12 @@
       `time` = #{time,jdbcType=TIMESTAMP}
     where lid = #{lid,jdbcType=INTEGER}
   </update>
+
+  <select id="selectRevokeMoney" resultType="java.lang.Double">
+    SELECT a.money + b.money FROM (SELECT money FROM log WHERE lid=#{lid,jdbcType=INTEGER}) a,(SELECT c.money FROM log l,customer c WHERE l.cid=c.cid AND l.lid=#{lid,jdbcType=INTEGER}) b
+    </select>
+
+  <update id="updateCustomerMoneyByLid">
+    UPDATE customer SET money=#{money,jdbcType=DOUBLE} WHERE cid=(SELECT l.cid FROM log l WHERE l.lid=#{lid,jdbcType=INTEGER})
+  </update>
 </mapper>

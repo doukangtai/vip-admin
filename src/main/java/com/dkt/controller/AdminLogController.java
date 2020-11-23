@@ -2,6 +2,7 @@ package com.dkt.controller;
 
 import com.dkt.entity.Fee;
 import com.dkt.entity.LogVO;
+import com.dkt.result.ResponseBean;
 import com.dkt.service.LogVOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,42 @@ public class AdminLogController {
 
     @Autowired
     LogVOService logVOService;
+
+    @GetMapping("/log/delete")
+    @ResponseBody
+    public ResponseBean deleteByLid(@RequestParam("lid") Integer lid) {
+        return logVOService.deleteByLid(lid);
+    }
+
+    @GetMapping("/log/revoke")
+    @ResponseBody
+    public ResponseBean revoke(@RequestParam("lid") Integer lid) {
+        return logVOService.revokeLog(lid);
+    }
+
+    @GetMapping("/log/page/ce")
+    @ResponseBody
+    public List<LogVO> selectByPageCEPhone(@RequestParam("cphone") String cphone, @RequestParam("ephone") String ephone, @RequestParam("startIndex") Integer startIndex, @RequestParam("len") Integer len) {
+        return logVOService.selectByPageCEPhone(cphone, ephone, startIndex, len);
+    }
+
+    @GetMapping("/log/count/ce")
+    @ResponseBody
+    public Integer selectCountCEByPhone(@RequestParam("cphone") String cphone, @RequestParam("ephone") String ephone) {
+        return logVOService.selectCountCEByPhone(cphone, ephone);
+    }
+
+    @GetMapping("/log/page/employee")
+    @ResponseBody
+    public List<LogVO> selectByPageEmployeePhone(@RequestParam("phone") String phone, @RequestParam("startIndex") Integer startIndex, @RequestParam("len") Integer len) {
+        return logVOService.selectByPageEmployeePhone(phone, startIndex, len);
+    }
+
+    @GetMapping("/log/count/employee")
+    @ResponseBody
+    public Integer selectCountEmployeeByPhone(@RequestParam("phone") String phone) {
+        return logVOService.selectCountEmployeeByPhone(phone);
+    }
 
     @GetMapping("/log/page/customer")
     @ResponseBody

@@ -23,7 +23,7 @@ public interface EmployeeService {
 
     int insert(Employee record);
 
-    List<Employee> selectByPage(@Param("startIndex") Integer startIndex, @Param("len") Integer len);
+    List<Employee> selectByPage(Integer startIndex, Integer len);
 
     Employee selectByPhone(String phone);
 

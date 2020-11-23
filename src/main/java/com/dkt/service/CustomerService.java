@@ -17,7 +17,7 @@ public interface CustomerService {
 
     Customer login(Customer customer);
 
-    List<CustomerVip> selectByPage(@Param("startIndex") Integer startIndex, @Param("len") Integer len);
+    List<CustomerVip> selectByPage(Integer startIndex, Integer len);
 
     Integer selectCustomerCount();
 
@@ -37,7 +37,7 @@ public interface CustomerService {
 
     Integer selectCustomerCountDelete();
 
-    List<CustomerVip> selectDeleteByPage(@Param("startIndex") Integer startIndex, @Param("len") Integer len);
+    List<CustomerVip> selectDeleteByPage(Integer startIndex, Integer len);
 
     ResponseBean recycleCustomer(Integer cid);
 

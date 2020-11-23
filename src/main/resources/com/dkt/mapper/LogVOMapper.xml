@@ -30,4 +30,20 @@
     <select id="selectByPageCustomerPhone" resultMap="BaseResultMap">
         SELECT l.lid,c.`name` cname,c.phone cphone,e.`name` ename,e.phone ephone,l.fname,l.fprice,l.vname,l.vdiscount,l.money,l.time FROM log l,employee e,customer c WHERE l.eid=e.eid AND l.cid=c.cid AND c.phone=#{phone,jdbcType=VARCHAR} ORDER BY l.time DESC LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
     </select>
+
+    <select id="selectCountEmployeeByPhone" resultType="java.lang.Integer">
+        SELECT COUNT(0) FROM log l,employee e WHERE l.eid=e.eid AND e.phone=#{phone,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByPageEmployeePhone" resultMap="BaseResultMap">
+        SELECT l.lid,c.`name` cname,c.phone cphone,e.`name` ename,e.phone ephone,l.fname,l.fprice,l.vname,l.vdiscount,l.money,l.time FROM log l,employee e,customer c WHERE l.eid=e.eid AND l.cid=c.cid AND e.phone=#{phone,jdbcType=VARCHAR} ORDER BY l.time DESC LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectCountCEByPhone" resultType="java.lang.Integer">
+        SELECT COUNT(0) FROM log l,employee e,customer c WHERE l.eid=e.eid AND l.cid=c.cid AND e.phone=#{ephone,jdbcType=VARCHAR} AND c.phone=#{cphone,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByPageCEPhone" resultMap="BaseResultMap">
+        SELECT l.lid,c.`name` cname,c.phone cphone,e.`name` ename,e.phone ephone,l.fname,l.fprice,l.vname,l.vdiscount,l.money,l.time FROM log l,employee e,customer c WHERE l.eid=e.eid AND l.cid=c.cid AND e.phone=#{ephone,jdbcType=VARCHAR} AND c.phone=#{cphone,jdbcType=VARCHAR} ORDER BY l.time DESC LIMIT #{startIndex,jdbcType=INTEGER},#{len,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -112,7 +112,7 @@
                                         <tbody>
                                         </tbody>
                                     </table>
-<%--                                    <ul id="xjzPagination" class="pagination"></ul>--%>
+
                                 </div>
 
                             </div>
@@ -202,8 +202,8 @@
                 urlPage = "${pageContext.request.contextPath}/admin/log/count/employee?phone=" + $("#ephone").val()
                 urlData = "${pageContext.request.contextPath}/admin/log/page/employee?phone=" + $("#ephone").val()
             } else {
-                urlPage = "${pageContext.request.contextPath}/admin/log/count/ce?cphone=" + $("#cphone").val() + "&ephone" + $("#ephone").val()
-                urlData = "${pageContext.request.contextPath}/admin/log/page/ce?cphone=" + $("#cphone").val() + "&ephone" + $("#ephone").val()
+                urlPage = "${pageContext.request.contextPath}/admin/log/count/ce?cphone=" + $("#cphone").val() + "&ephone=" + $("#ephone").val()
+                urlData = "${pageContext.request.contextPath}/admin/log/page/ce?cphone=" + $("#cphone").val() + "&ephone=" + $("#ephone").val()
             }
 
             $("#xjzPagination").remove();
@@ -226,8 +226,6 @@
                                 type : "GET",
                                 url : urlData + "&startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
                                 success : function(result) {
-                                    console.log(pageSize)
-                                    console.log(result)
                                     for (let i in result) {
                                         let str = "<tr>\n"+
                                             "<td>"+result[i].lid+"</td>\n"+
@@ -261,19 +259,38 @@
                     console.log(e.status);
                     console.log(e.responseText);
                 }
+
             });
-            <%--$.ajax({--%>
-            <%--    type : "GET",--%>
-            <%--    url : "${pageContext.request.contextPath}/admin/fee/delete?fid=" + fid,--%>
-            <%--    success : function(result) {--%>
-            <%--        alert(result.msg)--%>
-            <%--        window.location.href = "${pageContext.request.contextPath}/admin/page/fee";--%>
-            <%--    },--%>
-            <%--    error : function(e){--%>
-            <%--        console.log(e.status);--%>
-            <%--        console.log(e.responseText);--%>
-            <%--    }--%>
-            <%--});--%>
+        })
+        $("tbody").on("click", ".revoke-btn", function () {
+            let lid = $(this).attr("lid")
+            $.ajax({
+                type : "GET",
+                url : "${pageContext.request.contextPath}/admin/log/revoke?lid=" + lid,
+                success : function(result) {
+                    alert(result.msg)
+                    window.location.href = "${pageContext.request.contextPath}/admin/page/log";
+                },
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
+        })
+        $("tbody").on("click", ".delete-btn", function () {
+            let lid = $(this).attr("lid")
+            $.ajax({
+                type : "GET",
+                url : "${pageContext.request.contextPath}/admin/log/delete?lid=" + lid,
+                success : function(result) {
+                    alert(result.msg)
+                    window.location.href = "${pageContext.request.contextPath}/admin/page/log";
+                },
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
         })
     })
 </script>

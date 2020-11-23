@@ -19,4 +19,12 @@ public interface LogVOMapper {
     Integer selectCountCustomerByPhone(String phone);
 
     List<LogVO> selectByPageCustomerPhone(@Param("phone") String phone, @Param("startIndex") Integer startIndex, @Param("len") Integer len);
+
+    Integer selectCountEmployeeByPhone(String phone);
+
+    List<LogVO> selectByPageEmployeePhone(@Param("phone") String phone, @Param("startIndex") Integer startIndex, @Param("len") Integer len);
+
+    Integer selectCountCEByPhone(@Param("cphone") String phone, @Param("ephone") String ephone);
+
+    List<LogVO> selectByPageCEPhone(@Param("cphone") String cphone, @Param("ephone") String ephone, @Param("startIndex") Integer startIndex, @Param("len") Integer len);
 }
