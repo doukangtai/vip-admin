@@ -32,7 +32,7 @@ public class EmployeeController {
         }
     }
 
-    @GetMapping("/index")
+    @GetMapping("/page/index")
     public String index() {
         return "employee/index";
     }

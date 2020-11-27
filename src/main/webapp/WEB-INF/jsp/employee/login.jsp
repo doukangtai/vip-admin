@@ -127,7 +127,7 @@
                 success : function(result) {
                     console.log(result)
                     if (result.status === 'success') {
-                        window.location.href = "${pageContext.request.contextPath}/employee/index";
+                        window.location.href = "${pageContext.request.contextPath}/employee/page/index";
                     }
                 },
                 error : function(e){

@@ -28,7 +28,7 @@
                     <ul class="nav nav-drawer">
                         <li class="nav-item active"> <a class="home" href="${pageContext.request.contextPath}/admin/page/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
                         <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-home"></i> 员工管理</a>
+                            <a href="javascript:void(0)"><i class="mdi mdi-sign-text"></i> 员工管理</a>
                             <ul class="nav nav-subnav">
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/employee/all">员工列表</a> </li>
                                 <li> <a href="${pageContext.request.contextPath}/admin/page/employee/add">添加员工</a> </li>
@@ -45,18 +45,23 @@
                             </ul>
                         </li>
                         <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i> JS 插件</a>
+                            <a href="javascript:void(0)"><i class="mdi mdi-arrange-send-to-back"></i>会员卡、服务项目管理</a>
                             <ul class="nav nav-subnav">
-                                <li> <a href="javascript:void(0)">表格</a> </li>
-                                <li> <a href="javascript:void(0)">模态框</a> </li>
-                                <li> <a href="javascript:void(0)">警告框</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/vip">会员卡管理</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/fee">服务项目管理</a> </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-altimeter"></i>订单管理</a>
+                            <ul class="nav nav-subnav">
+                                <li> <a href="${pageContext.request.contextPath}/admin/page/log">管理订单</a> </li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
 
                 <div class="sidebar-footer">
-                    <p class="copyright">Copyright &copy; 2019. <a target="_blank" href="${pageContext.request.contextPath}/http://lyear.itshubao.com">IT书包</a> All rights reserved.</p>
+                    <p class="copyright">Copyright &copy; 2020. DKT All rights reserved.</p>
                 </div>
             </div>
 
