@@ -27,33 +27,19 @@
                     <ul class="nav nav-drawer">
                         <li class="nav-item active"> <a class="home" href="${pageContext.request.contextPath}/employee/page/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
                         <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-sign-text"></i> 员工管理</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/employee/all">员工列表</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/employee/add">添加员工</a> </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item nav-item-has-subnav">
                             <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 顾客管理</a>
                             <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer">顾客列表</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer/add">添加顾客</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer/charge">顾客结账、充值</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer/update">修改顾客信息</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/customer/recycle">回收站</a> </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item nav-item-has-subnav">
-                            <a href="javascript:void(0)"><i class="mdi mdi-arrange-send-to-back"></i>会员卡、服务项目管理</a>
-                            <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/vip">会员卡管理</a> </li>
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/fee">服务项目管理</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/employee/page/customer">顾客列表</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/employee/page/customer/add">添加顾客</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/employee/page/customer/charge">顾客结账、充值</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/employee/page/customer/update">修改顾客信息</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/employee/page/customer/recycle">回收站</a> </li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-has-subnav">
                             <a href="javascript:void(0)"><i class="mdi mdi-altimeter"></i>订单管理</a>
                             <ul class="nav nav-subnav">
-                                <li> <a href="${pageContext.request.contextPath}/admin/page/log">管理订单</a> </li>
+                                <li> <a href="${pageContext.request.contextPath}/employee/page/log">管理订单</a> </li>
                             </ul>
                         </li>
                     </ul>
