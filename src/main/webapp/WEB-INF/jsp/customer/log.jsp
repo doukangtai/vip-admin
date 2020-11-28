@@ -102,7 +102,7 @@
             $("#page-out-div").append("<ul id=\"xjzPagination\" class=\"pagination\"></ul>")
             $.ajax({
                 type : "GET",
-                url : "${pageContext.request.contextPath}/employee/log/count/customer?phone=" + $("#cphone").val(),
+                url : "${pageContext.request.contextPath}/customer/log/count/customer?phone=" + $("#cphone").val(),
                 success : function(result) {
                     let remainder = result % 5
                     let pageSize = Math.floor(result / 5)
@@ -115,7 +115,7 @@
                             $("table tbody").html('')
                             $.ajax({
                                 type : "GET",
-                                url : "${pageContext.request.contextPath}/employee/log/page/customer?phone=" + $("#cphone").val() + "&startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
+                                url : "${pageContext.request.contextPath}/customer/log/page/customer?phone=" + $("#cphone").val() + "&startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
                                 success : function(result) {
                                     for (let i in result) {
                                         let str = "<tr>\n"+

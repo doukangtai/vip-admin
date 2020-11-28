@@ -26,10 +26,17 @@ public class EmployeeController {
         Employee loginEmployee = employeeService.login(employee);
         if (loginEmployee != null) {
             session.setAttribute("employee", loginEmployee);
+            session.setMaxInactiveInterval(30*60);
             return new ResponseBean("success", "登录成功");
         } else {
             return new ResponseBean("error", "手机号或密码错误");
         }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
     }
 
     @GetMapping("/page/index")

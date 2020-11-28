@@ -38,14 +38,19 @@
 	<mvc:resources location="/WEB-INF/fonts/" mapping="/fonts/**"/>
 
 	<!--配置拦截器, 多个拦截器,则顺序执行 -->  
-	<!-- <mvc:interceptors>    
-	    <mvc:interceptor>    
-	        匹配的是url路径， 如果不配置或/**,将拦截所有的Controller  
-	        <mvc:mapping path="**/*_judge" />  
-	        <bean class="org.hqu.production_ms.interceptor.AuthorityInterceptor"></bean>    
-	    </mvc:interceptor>  
-	    当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法  
-	</mvc:interceptors>   -->
+	 <mvc:interceptors>
+	    <mvc:interceptor>
+	        <!--匹配的是url路径， 如果不配置或/**,将拦截所有的Controller-->
+	        <mvc:mapping path="/admin/**" />
+	        <mvc:mapping path="/employee/**" />
+	        <mvc:mapping path="/customer/**" />
+			<mvc:exclude-mapping path="/admin/login*"/>
+			<mvc:exclude-mapping path="/employee/login*"/>
+			<mvc:exclude-mapping path="/customer/login*"/>
+			<bean class="com.dkt.utils.LoginInterceptor"/>
+	    </mvc:interceptor>
+	    <!--当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法-->
+	</mvc:interceptors>
 
 	<!-- 定义文件上传解析器 -->
 <!--	<bean id="multipartResolver"-->
@@ -57,8 +62,8 @@
 <!--	</bean>-->
 	
 	<!-- 定义统一异常处理器 -->
-<!--	<bean class="com.megagao.production.ssm.exception.CustomExceptionResolver"></bean>-->
-	
+<!--	<bean class="com.dkt.utils.CustomExceptionResolver"></bean>-->
+
 	<!-- 转换器 -->
 <!--	<bean id="conversionService"-->
 <!--		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->

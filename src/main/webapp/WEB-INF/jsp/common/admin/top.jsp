@@ -26,7 +26,7 @@
                         <span>管理员：${sessionScope.admin.name}<span class="caret"></span></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li> <a href="${pageContext.request.contextPath}/lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+                        <li> <a href="${pageContext.request.contextPath}/admin/logout"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
                     </ul>
                 </li>
                 <!--切换主题配色-->

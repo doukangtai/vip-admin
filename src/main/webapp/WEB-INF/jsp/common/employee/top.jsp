@@ -27,7 +27,7 @@
                         <input id="ephone" type="hidden" value="${sessionScope.employee.phone}">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li> <a href="${pageContext.request.contextPath}/lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+                        <li> <a href="${pageContext.request.contextPath}/employee/logout"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
                     </ul>
                 </li>
                 <!--切换主题配色-->
