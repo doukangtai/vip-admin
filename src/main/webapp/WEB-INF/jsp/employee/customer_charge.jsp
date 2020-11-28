@@ -19,8 +19,8 @@
         <aside class="lyear-layout-sidebar">
 
             <!-- logo -->
-            <div id="logo" class="sidebar-header">
-                <a href="${pageContext.request.contextPath}/index.html"><img src="${pageContext.request.contextPath}/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+            <div style="height: 65px;width: 210px" id="logo" class="sidebar-header">
+                <a href="${pageContext.request.contextPath}/employee/page/index" style="height: 65px;width: 210px;line-height: 65px;font-size: 25px">伍幺柒美发</a>
             </div>
             <div class="lyear-layout-sidebar-scroll">
 

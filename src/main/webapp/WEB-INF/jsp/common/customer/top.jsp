@@ -17,7 +17,6 @@
                     <span class="lyear-toggler-bar"></span>
                     <span class="lyear-toggler-bar"></span>
                 </div>
-                <span class="navbar-page-title"> 示例页面 - 文档列表 </span>
             </div>
 
             <ul class="topbar-right">
@@ -28,10 +27,6 @@
                         <input id="cphone" type="hidden" value="${sessionScope.customer.phone}">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li> <a href="${pageContext.request.contextPath}/lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
-                        <li> <a href="${pageContext.request.contextPath}/lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
-                        <li> <a href="${pageContext.request.contextPath}/javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
-                        <li class="divider"></li>
                         <li> <a href="${pageContext.request.contextPath}/lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
                     </ul>
                 </li>
