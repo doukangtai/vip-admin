@@ -32,7 +32,7 @@ public class CustomerController {
         }
     }
 
-    @GetMapping("/index")
+    @GetMapping("/page/index")
     public String index() {
         return "customer/index";
     }
