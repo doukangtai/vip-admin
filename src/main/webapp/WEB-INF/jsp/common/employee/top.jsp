@@ -25,6 +25,7 @@
                     <a href="javascript:void(0)" data-toggle="dropdown">
                         <img class="img-avatar img-avatar-48 m-r-10" src="${pageContext.request.contextPath}/images/users/avatar.jpg" alt="笔下光年" />
                         <span>员工：${sessionScope.employee.name}<span class="caret"></span></span>
+                        <input id="ephone" type="hidden" value="${sessionScope.employee.phone}">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li> <a href="${pageContext.request.contextPath}/lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>

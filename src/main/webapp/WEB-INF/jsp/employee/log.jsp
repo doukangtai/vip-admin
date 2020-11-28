@@ -72,9 +72,6 @@
                                         <input id="cphone" class="form-control" type="text" placeholder="请输入顾客手机号">
                                     </div>
                                     <div class="col-xs-3">
-                                        <input id="ephone" class="form-control" type="text" placeholder="请输入员工手机号">
-                                    </div>
-                                    <div class="col-xs-3">
                                         <button id="select-btn" type="button" class="btn btn-success btn-primary">查 询</button>
                                     </div>
                                 </div>
@@ -127,7 +124,7 @@
             $("#page-out-div").append("<ul id=\"xjzPagination\" class=\"pagination\"></ul>")
             $.ajax({
                 type : "GET",
-                url : "${pageContext.request.contextPath}/employee/log/count/total",
+                url : "${pageContext.request.contextPath}/employee/log/count/employee?phone=" + $("#ephone").val(),
                 success : function(result) {
                     let remainder = result % 5
                     let pageSize = Math.floor(result / 5)
@@ -140,7 +137,7 @@
                             $("table tbody").html('')
                             $.ajax({
                                 type : "GET",
-                                url : "${pageContext.request.contextPath}/employee/log/page?startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
+                                url : "${pageContext.request.contextPath}/employee/log/page/employee?phone=" + $("#ephone").val() + "&startIndex=" + (currentPage - 1) * 5 + "&len=" + 5,
                                 success : function(result) {
                                     for (let i in result) {
                                         let str = "<tr>\n"+
@@ -228,7 +225,6 @@
                                             "<td>"+result[i].time+"</td>\n"+
                                             "<td>\n" +
                                             "<button lid=\""+result[i].lid+"\" class=\"revoke-btn btn btn-yellow btn-xs btn-primary\">撤销</button>\n" +
-                                            "<button lid=\""+result[i].lid+"\" class=\"delete-btn btn btn-danger btn-xs btn-primary\">删除</button>\n" +
                                             "</td>\n"+
                                             "</tr>";
                                         $("tbody").append(str)
@@ -254,21 +250,6 @@
             $.ajax({
                 type : "GET",
                 url : "${pageContext.request.contextPath}/employee/log/revoke?lid=" + lid,
-                success : function(result) {
-                    alert(result.msg)
-                    window.location.href = "${pageContext.request.contextPath}/employee/page/log";
-                },
-                error : function(e){
-                    console.log(e.status);
-                    console.log(e.responseText);
-                }
-            });
-        })
-        $("tbody").on("click", ".delete-btn", function () {
-            let lid = $(this).attr("lid")
-            $.ajax({
-                type : "GET",
-                url : "${pageContext.request.contextPath}/employee/log/delete?lid=" + lid,
                 success : function(result) {
                     alert(result.msg)
                     window.location.href = "${pageContext.request.contextPath}/employee/page/log";
