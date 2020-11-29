@@ -29,7 +29,7 @@ public class EmployeeController {
             session.setMaxInactiveInterval(30*60);
             return new ResponseBean("success", "登录成功");
         } else {
-            return new ResponseBean("error", "手机号或密码错误");
+            return new ResponseBean("error", "手机号或密码错误或账号已注销");
         }
     }
 

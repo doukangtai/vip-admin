@@ -111,7 +111,7 @@
   </update>
 
   <select id="selectByPhonePassword" resultMap="BaseResultMap">
-    SELECT * FROM customer WHERE phone=#{phone,jdbcType=VARCHAR} AND `password`=#{password,jdbcType=VARCHAR}
+    SELECT * FROM customer WHERE phone=#{phone,jdbcType=VARCHAR} AND `password`=#{password,jdbcType=VARCHAR} AND is_logout_vip=0
   </select>
 
   <select id="selectByPage" resultType="com.dkt.entity.Customer">
