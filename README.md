@@ -53,16 +53,16 @@
 
 ## 项目截图
 
-![](E:\project\idea-project\vip\img\11.png)
+![](https://github.com/doukangtai/vip-admin/blob/master/img/11.png)
 
-![](E:\project\idea-project\vip\img\12.png)
+![](https://github.com/doukangtai/vip-admin/blob/master/img/12.png)
 
-![](E:\project\idea-project\vip\img\13.png)
+![](https://github.com/doukangtai/vip-admin/blob/master/img/13.png)
 
-![](E:\project\idea-project\vip\img\14.png)
+![](https://github.com/doukangtai/vip-admin/blob/master/img/14.png)
 
-![](E:\project\idea-project\vip\img\15.png)
+![](https://github.com/doukangtai/vip-admin/blob/master/img/15.png)
 
-![](E:\project\idea-project\vip\img\16.png)
+![](https://github.com/doukangtai/vip-admin/blob/master/img/16.png)
 
-![](E:\project\idea-project\vip\img\17.png)
+![](https://github.com/doukangtai/vip-admin/blob/master/img/17.png)
