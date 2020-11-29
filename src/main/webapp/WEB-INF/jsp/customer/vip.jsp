@@ -30,6 +30,7 @@
                         <li class="nav-item"><a href="${pageContext.request.contextPath}/customer/page/vip"><i class="mdi mdi-arrange-send-to-back"></i>会员卡</a></li>
                         <li class="nav-item"><a href="${pageContext.request.contextPath}/customer/page/fee"><i class="mdi mdi-content-paste"></i>服务项目</a></li>
                         <li class="nav-item"><a href="${pageContext.request.contextPath}/customer/page/log"><i class="mdi mdi-altimeter"></i>消费记录</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/customer/page/customer"><i class="mdi mdi-script"></i>账户信息</a></li>
                     </ul>
                 </nav>
 

@@ -133,7 +133,7 @@
             list.password = $('#password').val();
             list.address = $('#address').val();
             list.type = 0;
-            list.isFire = 1;
+            list.isFire = 0;
             $.ajax({
                 type : "POST",
                 contentType: "application/json;charset=UTF-8",
