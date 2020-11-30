@@ -125,7 +125,9 @@
                 url : "${pageContext.request.contextPath}/admin/login",
                 data : JSON.stringify(list),
                 success : function(result) {
-                    console.log(result)
+                    if (result.status == 'error') {
+                        alert(result.msg);
+                    }
                     if (result.status === 'success') {
                         window.location.href = "${pageContext.request.contextPath}/admin/page/index";
                     }
