@@ -34,6 +34,9 @@ public class VipServiceImpl implements VipService {
 
     @Override
     public ResponseBean updateByPrimaryKeySelective(Vip record) {
+        if ("".equals(record.getName()) || record.getDiscount() == null || record.getDiscount() < 0) {
+            return new ResponseBean("null", "值不能为空，或数据非法");
+        }
         int updateByPrimaryKeySelective = vipMapper.updateByPrimaryKeySelective(record);
         if (updateByPrimaryKeySelective >= 1) {
             return new ResponseBean("success", "修改成功");

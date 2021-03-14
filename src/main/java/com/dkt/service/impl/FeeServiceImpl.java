@@ -40,6 +40,9 @@ public class FeeServiceImpl implements FeeService {
 
     @Override
     public ResponseBean updateByPrimaryKeySelective(Fee record) {
+        if ("".equals(record.getName()) || record.getPrice() == null || record.getPrice() < 0) {
+            return new ResponseBean("null", "数据不能为空，或数据非法");
+        }
         int updateByPrimaryKeySelective = feeMapper.updateByPrimaryKeySelective(record);
         if (updateByPrimaryKeySelective >= 1) {
             return new ResponseBean("success", "修改服务项目成功");

@@ -37,6 +37,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public ResponseBean updateByPrimaryKeySelective(Employee record) {
+        if (verifyNamePhonePasswordAddress(record)) {
+            return new ResponseBean("null", "存在空值，添加失败");
+        }
         Employee selectByPrimaryKey = employeeMapper.selectByPrimaryKey(record.getEid());
         Employee selectByPhone = employeeMapper.selectByPhone(record.getPhone());
         if (selectByPhone != null && !selectByPhone.getPhone().equals(selectByPrimaryKey.getPhone())) {
@@ -91,6 +94,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public ResponseBean addEmployee(Employee employee) {
+        if (verifyNamePhonePasswordAddress(employee)) {
+            return new ResponseBean("null", "存在空值，添加失败");
+        }
         Employee selectByPhone = selectByPhone(employee.getPhone());
         if (selectByPhone != null) {
             return new ResponseBean("error", "员工存在添加失败");
@@ -100,5 +106,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             return new ResponseBean("success", "添加员工成功");
         }
         return new ResponseBean("error", "添加员工失败");
+    }
+
+    private boolean verifyNamePhonePasswordAddress(Employee employee) {
+        if ("".equals(employee.getName()) || "".equals(employee.getPhone()) || "".equals(employee.getPassword()) || "".equals(employee.getAddress())) {
+            return true;
+        }
+        return false;
     }
 }

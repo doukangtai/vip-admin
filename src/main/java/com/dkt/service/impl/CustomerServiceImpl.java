@@ -57,6 +57,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public ResponseBean customerCharge(String phone, Double charge) {
+        if ("".equals(phone) || charge == null || charge < 0) {
+            return new ResponseBean("null", "手机号不能为空，或金额非法");
+        }
         Customer customer = customerMapper.selectByPhone(phone);
         customer.setMoney(customer.getMoney() + charge);
         int saveMoneyByPhone = customerMapper.saveMoneyByPhone(customer.getPhone(), customer.getMoney());
@@ -107,6 +110,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public ResponseBean updateByPrimaryKeySelective(Customer customer) {
+        if ("".equals(customer.getName()) || "".equals(customer.getPassword()) || "".equals(customer.getPhone()) || customer.getMoney() == null || customer.getMoney() < 0) {
+            return new ResponseBean("null", "数据不能为空，或金额非法");
+        }
         Customer selectByPhone = customerMapper.selectByPhone(customer.getPhone());
         Customer selectByPrimaryKey = customerMapper.selectByPrimaryKey(customer.getCid());
         if (selectByPhone != null && !selectByPhone.getPhone().equals(selectByPrimaryKey.getPhone())) {
@@ -151,6 +157,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public ResponseBean customerAdd(Customer customer) {
+        System.out.println(customer);
+        if ("".equals(customer.getName()) || "".equals(customer.getPhone()) || "".equals(customer.getPassword()) || customer.getMoney() == null || customer.getMoney() < 0) {
+            return new ResponseBean("null", "不能有空值，或金额非法");
+        }
         Customer selectByPhone = selectByPhone(customer.getPhone());
         if (selectByPhone != null) {
             return new ResponseBean("error", "顾客存在添加失败");
